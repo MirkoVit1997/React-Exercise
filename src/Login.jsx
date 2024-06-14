@@ -30,6 +30,7 @@ export function Login({ onLogin }) {
   }
 
   function handleLogin() {
+    e.preventDefault()
     console.log(data);
 
     onLogin(data);
