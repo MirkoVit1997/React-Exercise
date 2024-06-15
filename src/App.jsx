@@ -4,9 +4,14 @@ import { Counter } from "./Counter";
 import { HelloWorld } from "./HelloWorld";
 import { Login } from "./Login";
 import { MouseClicker } from "./MouseClicker";
+import { UncontrolledLogin } from "./UncontrolledLogin";
+
 import { Welcome } from "./Welcome";
 
 export function App() {
+  function onLogin (data) {
+    console.log(data)
+  }
   return (
     <div>
       <h1>My Awesome Application</h1>
@@ -17,7 +22,8 @@ export function App() {
       <Counter initialValue={26} />
       <Clock />
       <MouseClicker />
-      <Login />
+      <Login onLogin={onLogin} />
+      <UncontrolledLogin />
     </div>
   );
 }

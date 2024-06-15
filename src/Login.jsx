@@ -29,15 +29,13 @@ export function Login({ onLogin }) {
     setData(createData());
   }
 
-  function handleLogin() {
-    e.preventDefault()
-    console.log(data);
-
+  function handleLogin(event) {
+    event.preventDefault();
     onLogin(data);
   }
 
   return (
-    <div>
+    <form onSubmit={handleLogin}>
       <h1>My Form</h1>
       <input
         name="username"
@@ -56,12 +54,10 @@ export function Login({ onLogin }) {
         checked={data.remember}
         onChange={handleInputChange}
       ></input>
-      <button disabled={!data.username || !data.password} onClick={handleLogin}>
-        Login
-      </button>
+      <button disabled={!data.username || !data.password}>Login</button>
       <button onClick={handleResetForm}>Reset</button>
 
       <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
+    </form>
   );
 }
