@@ -3,49 +3,50 @@ import { CounterDisplay } from "./CounterDisplay";
 
 export function Counter({ initialValue = 0 }) {
   const [counter, setCounter] = useState(initialValue);
-  const directionRef = useRef("");
-  const previousDirectionRef = useRef("");
+  const directionRef = useRef(null);
 
   useEffect(() => {
-    console.log(`The value of the counter is${counter}`);
+    const previousDirection = directionRef.current;
+    let newDirection = null;
+
+    if (counter > initialValue) {
+      newDirection = "su";
+    } else if (counter < initialValue) {
+      newDirection = "giù";
+    }
+
+    if (newDirection !== previousDirection) {
+      directionRef.current = newDirection;
+      if (newDirection) {
+        console.log(`La direzione del cambiamento è ${newDirection}`);
+      }
+    }
+
+    console.log(`Il valore del contatore è ${counter}`);
 
     return () => {
-      console.log(`The value of the counter was ${counter}`);
+      console.log(`Il valore del contatore era ${counter}`);
     };
-  }, [counter]);
+  }, [counter, initialValue]);
 
   function handleCounterIncrement() {
-    setCounter((c) => {
-      directionRef.current = c < counter ? "su" : "giu";
-      return c + 1;
-    });
-
-    function handleCounterDecrement() {
-      setCounter((c) => {
-        directionRef.current = c > counter ? "giu" : "su";
-        return c - 1;
-      });
-    }
-
-    function handleCounterReset() {
-      setCounter(initialValue);
-    }
-
-    useEffect(() => {
-      if (directionRef.current != previousDirectionRef.current) {
-        console.log("nuova direzione:", directionRef.current);
-        previousDirectionRef.current = directionRef.current;
-      }
-    }, []);
-
-    return (
-      <div>
-        <p>Direzione: {directionRef.current}</p>
-        <CounterDisplay counter={counter} />
-        <button onClick={handleCounterIncrement}>Increment</button>
-        <button onClick={handleCounterDecrement}>Decrement</button>
-        <button onClick={handleCounterReset}>Reset</button>
-      </div>
-    );
+    setCounter(counter + 1);
   }
+
+  function handleCounterDecrement() {
+    setCounter((c) => c - 1);
+  }
+
+  function handleCounterReset() {
+    setCounter(initialValue);
+  }
+
+  return (
+    <div>
+      <CounterDisplay counter={counter} />
+      <button onClick={handleCounterIncrement}>Incrementa</button>
+      <button onClick={handleCounterDecrement}>Decrementa</button>
+      <button onClick={handleCounterReset}>Resetta</button>
+    </div>
+  );
 }
