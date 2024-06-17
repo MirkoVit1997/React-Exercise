@@ -1,12 +1,14 @@
 import { AlertClock } from "./AlertClock";
 import { Clock } from "./Clock";
 import { Counter } from "./Counter";
+import { FocusInput } from "./FocusInput";
 import { HelloWorld } from "./HelloWorld";
 import { Login } from "./Login";
 import { MouseClicker } from "./MouseClicker";
+import { PrintEffect } from "./PrintEffect";
 import { UncontrolledLogin } from "./UncontrolledLogin";
-
 import { Welcome } from "./Welcome";
+
 
 export function App() {
   function onLogin (data) {
@@ -24,6 +26,8 @@ export function App() {
       <MouseClicker />
       <Login onLogin={onLogin} />
       <UncontrolledLogin />
+      <FocusInput />
+      <PrintEffect />
     </div>
   );
 }
