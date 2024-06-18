@@ -8,6 +8,7 @@ import { Login } from "./Login";
 import { MouseClicker } from "./MouseClicker";
 import { MyList } from "./MyList.";
 import { PrintEffect } from "./PrintEffect";
+import { TodoList } from "./ToDoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 
@@ -42,6 +43,7 @@ export function App() {
         {id: 3, name: "John", age: 42}, 
         {id: 4, name: "Billy", age: 53}
         ]} />
+        <TodoList />
         
     </div>
   );
