@@ -1,4 +1,5 @@
 import { useState } from "react";
+import classes from "./MyList.module.scss"
 
 export function MyList({ items }) {
   const object = {};
@@ -22,6 +23,7 @@ export function MyList({ items }) {
           <h4>{item.name}</h4>
           <p>{item.age} years old</p>
           <button
+          className={classes.button}
             onClick={() => {
               handleIncrementCounters(item.id);
             }}

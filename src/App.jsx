@@ -18,7 +18,7 @@ export function App() {
     console.log(data)
   }
   return (
-    <div>
+    <div className="app">
       <h1>My Awesome Application</h1>
       <hr />
       <HelloWorld />

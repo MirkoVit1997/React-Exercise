@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { CounterDisplay } from "./CounterDisplay";
+import classes from "./Counter.module.scss"
 
 export function Counter({ initialValue = 0 }) {
   const [counter, setCounter] = useState(initialValue);
@@ -43,10 +44,11 @@ export function Counter({ initialValue = 0 }) {
 
   return (
     <div>
-      <CounterDisplay counter={counter} />
-      <button onClick={handleCounterIncrement}>Incrementa</button>
-      <button onClick={handleCounterDecrement}>Decrementa</button>
-      <button onClick={handleCounterReset}>Resetta</button>
+      <p className={counter % 2 === 0 ? classes.evenBg : classes.oddBg}> i haved counted {counter}</p>
+      <CounterDisplay counter={counter} className={counter % 2 === 0 ? classes.evenBg : classes.oddBg} />
+      <button className={classes.button} onClick={handleCounterIncrement}>Incrementa</button>
+      <button className={classes.button} onClick={handleCounterDecrement}>Decrementa</button>
+      <button className={classes.button} onClick={handleCounterReset}>Resetta</button>
     </div>
   );
 }
