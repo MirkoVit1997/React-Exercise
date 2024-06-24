@@ -1,6 +1,19 @@
 .app{
-    padding: 20ox;
-    margin: 20px;
-    border: 3px solid black;
-    background-color: azure;
+    padding: 50px;
+    margin: 50px;
+    border: 5px solid rgb(255, 0, 0);
+    background-color: rgb(255, 255, 255);
 }
+
+h1 {
+    color: orangered;
+}
+
+.app-content-hidden {
+    display: none;
+}
+
+.app-title:hover {
+    cursor: pointer;
+}
+

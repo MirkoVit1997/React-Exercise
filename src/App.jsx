@@ -1,6 +1,7 @@
 import { AlertClock } from "./AlertClock";
 import { Clock } from "./Clock";
 import { Colors } from "./Colors";
+import { Container } from "./Container";
 import { Counter } from "./Counter";
 import { FocusInput } from "./FocusInput";
 import { HelloWorld } from "./HelloWorld";
@@ -12,13 +13,12 @@ import { TodoList } from "./ToDoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 
-
 export function App() {
-  function onLogin (data) {
-    console.log(data)
+  function onLogin(data) {
+    console.log(data);
   }
   return (
-    <div className="app">
+    <Container title={<h1>My Awesome Application</h1>}>
       <h1>My Awesome Application</h1>
       <hr />
       <HelloWorld />
@@ -31,20 +31,23 @@ export function App() {
       <UncontrolledLogin />
       <FocusInput />
       <PrintEffect />
-      <Colors colors={[
-        {id: 1, name: "Red",}, 
-        {id: 2, name: "Green",}, 
-        {id: 3, name: "Grey",}, 
-        {id: 4, name: "Blue"}
-        ]} />
-      <MyList items = {[
-        {id: 1, name: "Jane", age: 33}, 
-        {id: 2, name: "Kate", age: 20}, 
-        {id: 3, name: "John", age: 42}, 
-        {id: 4, name: "Billy", age: 53}
-        ]} />
-        <TodoList />
-        
-    </div>
+      <Colors
+        colors={[
+          { id: 1, name: "Red" },
+          { id: 2, name: "Green" },
+          { id: 3, name: "Grey" },
+          { id: 4, name: "Blue" },
+        ]}
+      />
+      <MyList
+        items={[
+          { id: 1, name: "Jane", age: 33 },
+          { id: 2, name: "Kate", age: 20 },
+          { id: 3, name: "John", age: 42 },
+          { id: 4, name: "Billy", age: 53 },
+        ]}
+      />
+      <TodoList />
+    </Container>
   );
 }

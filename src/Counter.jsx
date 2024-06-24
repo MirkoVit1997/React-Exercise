@@ -45,7 +45,7 @@ export function Counter({ initialValue = 0 }) {
   return (
     <div>
       <p className={counter % 2 === 0 ? classes.evenBg : classes.oddBg}> i haved counted {counter}</p>
-      <CounterDisplay counter={counter} className={counter % 2 === 0 ? classes.evenBg : classes.oddBg} />
+      <CounterDisplay counter={counter} />
       <button className={classes.button} onClick={handleCounterIncrement}>Incrementa</button>
       <button className={classes.button} onClick={handleCounterDecrement}>Decrementa</button>
       <button className={classes.button} onClick={handleCounterReset}>Resetta</button>

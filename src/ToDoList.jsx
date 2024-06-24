@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import classes from "./ToDoList.module.scss"
 
 export function TodoList() {
 	const [todos, setTodos] = useState([])
@@ -31,7 +32,7 @@ export function TodoList() {
 
 			<ul>
 				{todos.map((todo, index) => (
-					<li key={index}>
+					<li className={classes.ToDo} key={index}>
                         {todo}
                         <button onClick={() => handleRemoveTodo(index)}>Remove</button>
                         </li>
