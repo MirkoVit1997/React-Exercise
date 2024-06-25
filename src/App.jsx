@@ -14,6 +14,7 @@ import { TodoList } from "./ToDoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 import { LanguageContext } from "./LanguageContext";
+import { GitHubUsers } from "./GitHubUsers";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -36,6 +37,7 @@ export function App() {
           <h1>My Awesome Application</h1>
           <hr />
           <HelloWorld />
+          <GitHubUsers />
           <Welcome name="John" age={45} />
           <AlertClock />
           <Counter initialValue={26} />
