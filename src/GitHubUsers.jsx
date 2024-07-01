@@ -19,8 +19,8 @@ export function GitHubUsers() {
         <button>Submit</button>
       </form>
       {users.map((user) => (
-        <GithubUser username={user} />
+        <GithubUser key={user} username={user} />
       ))}
     </div>
-  );
+  ); 
 }

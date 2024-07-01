@@ -1,10 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { CounterDisplay } from "./CounterDisplay";
 import classes from "./Counter.module.scss"
+import { UseCounter } from "./UseCounters";
 
-export function Counter({ initialValue = 0 }) {
-  const [counter, setCounter] = useState(initialValue);
+
+export function Counter({ initialValue }) {
   const directionRef = useRef(null);
+  const {counter, onDecrement, onIncrement, onReset} = UseCounter()
+
+
 
   useEffect(() => {
     const previousDirection = directionRef.current;
@@ -30,25 +34,15 @@ export function Counter({ initialValue = 0 }) {
     };
   }, [counter, initialValue]);
 
-  function handleCounterIncrement() {
-    setCounter(counter + 1);
-  }
-
-  function handleCounterDecrement() {
-    setCounter((c) => c - 1);
-  }
-
-  function handleCounterReset() {
-    setCounter(initialValue);
-  }
+ 
 
   return (
     <div>
       <p className={counter % 2 === 0 ? classes.evenBg : classes.oddBg}> i haved counted {counter}</p>
       <CounterDisplay counter={counter} />
-      <button className={classes.button} onClick={handleCounterIncrement}>Incrementa</button>
-      <button className={classes.button} onClick={handleCounterDecrement}>Decrementa</button>
-      <button className={classes.button} onClick={handleCounterReset}>Resetta</button>
+      <button className={classes.button} onClick={onIncrement}>Incrementa</button>
+      <button className={classes.button} onClick={onDecrement}>Decrementa</button>
+      <button className={classes.button} onClick={onReset}>Resetta</button>
     </div>
   );
 }

@@ -1,38 +1,14 @@
-import { useState } from "react";
+import { useForm } from "./UseForm";
 
-function createData() {
-  return {
-    username: "",
-    password: "",
-    remember: false,
-  };
-}
 
 export function Login({ onLogin }) {
-  const [data, setData] = useState(createData());
-
-  function handleInputChange(event) {
-    const name = event.target.name;
-    const value = event.target.value;
-    const checked = event.target.checked;
-    const type = event.target.type;
-
-    setData((data) => {
-      return {
-        ...data,
-        [name]: type === "checkbox" ? checked : value,
-      };
-    });
-  }
-
-  function handleResetForm() {
-    setData(createData());
-  }
-
+  const [data, change, reset] = useForm()
+  
   function handleLogin(event) {
     event.preventDefault();
     onLogin(data);
   }
+  
 
   return (
     <form onSubmit={handleLogin}>
@@ -40,22 +16,22 @@ export function Login({ onLogin }) {
       <input
         name="username"
         value={data.username}
-        onChange={handleInputChange}
+        onChange={change}
       ></input>
       <input
         name="password"
         type="password"
         value={data.password}
-        onChange={handleInputChange}
+        onChange={change}
       ></input>
       <input
         name="remember"
         type="checkbox"
         checked={data.remember}
-        onChange={handleInputChange}
+        onChange={change}
       ></input>
       <button disabled={!data.username || !data.password}>Login</button>
-      <button onClick={handleResetForm}>Reset</button>
+      <button onClick={reset}>Reset</button>
 
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </form>
