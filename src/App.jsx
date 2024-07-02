@@ -15,6 +15,7 @@ import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 import { LanguageContext } from "./LanguageContext";
 import { GitHubUsers } from "./GitHubUsers";
+import { Location } from "./Location";
 
 
 
@@ -39,6 +40,7 @@ export function App() {
         <LanguageContext.Provider value={language}>
           <h1>My Awesome Application</h1>
           <hr />
+          <Location />
           <HelloWorld />
           <GitHubUsers />
           <Welcome name="John" age={45} />

@@ -4,6 +4,8 @@ import { UseGitHubUsers } from './UseGitHubUsers';
 export function GithubUser({ username }) {
 	
 const {user, error, loading} = UseGitHubUsers(username)
+
+
 	return (
 		<div>
 			{user && (
