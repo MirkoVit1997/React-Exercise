@@ -1,4 +1,4 @@
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter, Link } from "react-router-dom";
 import { useState } from "react";
 import { AlertClock } from "./AlertClock";
 import { Clock } from "./Clock";
@@ -39,6 +39,9 @@ export function App() {
           <LanguageContext.Provider value={language}>
             <h1>My Awesome Application</h1>
             <hr />
+            <Link to="/">Welcome</Link><hr />
+            <Link to="/counter">Counter</Link><hr />
+            <Link to="/user/mirkovit1997">Show GitHub User</Link><hr />
             <Routes>
               <Route path="/" element={<Welcome name="John" age={45} />} />
               <Route path="/counter" element={<Counter initialValue={26} />} />
