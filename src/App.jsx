@@ -18,6 +18,10 @@ import { LanguageContext } from "./LanguageContext";
 import { GitHubUsers } from "./GitHubUsers";
 import { Location } from "./Location";
 import { ShowGitHubUser } from "./ShowGitHubUser";
+import { NotFound } from "./NotFound";
+import { GithubUsersList } from "./GitHubUsersList";
+
+
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -39,13 +43,24 @@ export function App() {
           <LanguageContext.Provider value={language}>
             <h1>My Awesome Application</h1>
             <hr />
-            <Link to="/">Welcome</Link><hr />
-            <Link to="/counter">Counter</Link><hr />
-            <Link to="/user/mirkovit1997">Show GitHub User</Link><hr />
+            <Link to="/">Welcome</Link>
+            <hr />
+            <Link to="/counter">Counter</Link>
+            <hr />
+            <Link to="/user/mirkovit1997">Show GitHub User</Link>
+            <hr />
             <Routes>
               <Route path="/" element={<Welcome name="John" age={45} />} />
               <Route path="/counter" element={<Counter initialValue={26} />} />
               <Route path="/user/:username" element={<ShowGitHubUser />} />
+              <Route path="*" element={<NotFound />} />
+
+              
+                <Route path="/users/" element={<GithubUsersList />}>
+                <Route index element={<p>Aggiungi un utente e selezionalo</p>} />
+                <Route path=":username" element={<ShowGitHubUser />} />
+                </Route>
+              
             </Routes>
             <Location />
             <HelloWorld />
