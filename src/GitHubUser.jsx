@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { UseGitHubUsers } from './UseGitHubUsers';
 
 export function GithubUser({ username }) {
