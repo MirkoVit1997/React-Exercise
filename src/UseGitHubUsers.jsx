@@ -8,6 +8,7 @@ export function UseGitHubUsers(username) {
     fetcher
   );
 
+  //recupera manualmente i dati quando viene richiamato.
   function fetchGitHubUser() {
     mutate()
   }
