@@ -21,8 +21,6 @@ import { ShowGitHubUser } from "./ShowGitHubUser";
 import { NotFound } from "./NotFound";
 import { GithubUsersList } from "./GitHubUsersList";
 
-
-
 export function App() {
   const [language, setLanguage] = useState("en");
 
@@ -55,12 +53,13 @@ export function App() {
               <Route path="/user/:username" element={<ShowGitHubUser />} />
               <Route path="*" element={<NotFound />} />
 
-              
-                <Route path="/users/" element={<GithubUsersList />}>
-                <Route index element={<p>Aggiungi un utente e selezionalo</p>} />
+              <Route path="/users/" element={<GithubUsersList />}>
+                <Route
+                  index
+                  element={<p>Aggiungi un utente e selezionalo</p>}
+                />
                 <Route path=":username" element={<ShowGitHubUser />} />
-                </Route>
-              
+              </Route>
             </Routes>
             <Location />
             <HelloWorld />
